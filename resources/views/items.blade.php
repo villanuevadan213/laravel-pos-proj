@@ -3,13 +3,18 @@
         Inventory Page
     </x-slot:heading>
 
-    <ul>
+    <div class="space-y-4">
         @foreach ($items as $item)
-            <li>
-                <a href="/items/{{ $item['id'] }}" class="text-blue-500 hover:underline">
+            <a href="/items/{{ $item['id'] }}" class="block px-4 py-6 border border-gray-200">
+                <div class="font-bold text-blue-500 text-sm">{{ $item->supplier->name }}</div>
+                <div>
                     <strong>{{ $item['name'] }}:</strong> Price {{ $item['price'] }} per piece.
-                </a>
-            </li>
+                </div>
+            </a>
         @endforeach
-    </ul>
+
+        <div>
+            {{ $items->links() }}
+        </div>
+    </div>
 </x-layout>

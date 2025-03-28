@@ -12,8 +12,10 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/items', function ()  {
+    $items = Item::with('supplier')->cursorPaginate(3);
+
     return view('items', [
-        'items' => Item::all()
+        'items' => $items
     ]);
 });
 
