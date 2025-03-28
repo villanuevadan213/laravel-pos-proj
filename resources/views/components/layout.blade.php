@@ -21,8 +21,7 @@
                                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                                 <x-nav-link href="/dashboard"
                                     :active="request()->is('dashboard')">Dashboard</x-nav-link>
-                                <x-nav-link href="/inventory"
-                                    :active="request()->is('inventory')">Inventory</x-nav-link>
+                                <x-nav-link href="/items" :active="request()->is('items')">Inventory</x-nav-link>
                                 <x-nav-link href="/sales" :active="request()->is('sales')">Sales</x-nav-link>
                                 <x-nav-link href="/pos" :active="request()->is('pos')">POS</x-nav-link>
                             </div>
@@ -87,7 +86,7 @@
                         aria-current="page">Home</a>
                     <a href="/dashboard"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Dashboard</a>
-                    <a href="/inventory"
+                    <a href="/items"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Inventory</a>
                     <a href="/sales"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Sales</a>
