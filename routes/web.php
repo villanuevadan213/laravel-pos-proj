@@ -12,17 +12,33 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/items', function ()  {
-    $items = Item::with('supplier')->cursorPaginate(3);
+    $items = Item::with('supplier')->latest()->simplePaginate(3);
 
-    return view('items', [
+    return view('items.index', [
         'items' => $items
     ]);
+});
+
+Route::get('/items/create', function ()  {
+    return view('items.create');
 });
 
 Route::get('/items/{id}', function ($id)  {
     $item = Item::find($id);
 
-    return view('item', ['item' => $item]);
+    return view('items.show', ['item' => $item]);
+});
+
+Route::post('/items', function () {
+    // validation...
+
+    Item::create([
+        'name' => request('name'),
+        'price' => request('price'),
+        'supplier_id' => 1
+    ]);
+
+    return redirect('/items');
 });
 
 Route::get('/sales', function () {
