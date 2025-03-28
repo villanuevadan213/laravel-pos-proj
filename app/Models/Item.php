@@ -11,4 +11,8 @@ class Item extends Model {
     protected $table = 'inventory_items';
 
     protected $fillable = ['name', 'price'];
+
+    public function supplier() {
+        return $this->belongsTo(Supplier::class);
+    }
 }
