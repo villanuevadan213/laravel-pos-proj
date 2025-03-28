@@ -15,4 +15,8 @@ class Item extends Model {
     public function supplier() {
         return $this->belongsTo(Supplier::class);
     }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class, foreignPivotKey: "inventory_item_id");
+    }
 }
