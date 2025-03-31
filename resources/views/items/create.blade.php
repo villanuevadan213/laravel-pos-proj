@@ -20,10 +20,6 @@
                                     class="block min-w-0 grow p-1.5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                                     placeholder="Motherboard">
                             </div>
-
-                            @error('name')
-                                <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
-                            @enderror
                         </div>
                     </div>
 
@@ -36,10 +32,6 @@
                                     class="block min-w-0 grow p-1.5 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                                     placeholder="₱ XX,XXX per piece">
                             </div>
-
-                            @error('price')
-                                <p class="text-xs text-red-500 font-semibold mt-1">{{ $message }}</p>
-                            @enderror
                         </div>
                     </div>
                 </div>
