@@ -44,6 +44,35 @@ Route::post('/items', function () {
     return redirect('/items');
 });
 
+// Edit Item
+Route::get('/items/{id}/edit', function ($id)  {
+    $item = Item::find($id);
+
+    return view('items.edit', ['item' => $item]);
+});
+
+Route::patch('/items/{id}', function ($id)  {
+    request()->validate([
+        'name' => ['required', 'min:3'],
+        'price' => ['required']
+    ]);
+
+    $item = Item::findOrFail($id);
+
+    $item->update([
+        'name' => request('name'),
+        'price' => request('price'),
+    ]);
+
+    return redirect('/items/' . $item->id);
+});
+
+Route::delete('/items/{id}', function ($id)  {
+    Item::findOrFail($id)->delete();
+
+    return redirect('/items');
+});
+
 Route::get('/sales', function () {
     return view('sales');
 });
