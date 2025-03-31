@@ -30,7 +30,10 @@ Route::get('/items/{id}', function ($id)  {
 });
 
 Route::post('/items', function () {
-    // validation...
+    request()->validate([
+        'name' => ['required', 'min:3'],
+        'price' => ['required']
+    ]);
 
     Item::create([
         'name' => request('name'),
