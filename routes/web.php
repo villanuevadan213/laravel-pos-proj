@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
@@ -10,6 +11,8 @@ Route::view('/', 'home');
 Route::view('/dashboard', 'dashboard');
 Route::view('/sales', 'sales');
 Route::view('/pos', 'pos');
+
+Route::resource('audits', AuditController::class);
 
 Route::resource('items', ItemController::class); 
 // 7 Basic function index, show, create, store, edit, update, destroy

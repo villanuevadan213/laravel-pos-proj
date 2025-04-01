@@ -24,6 +24,7 @@
                                 <x-nav-link href="/items" :active="request()->is('items')">Inventory</x-nav-link>
                                 <x-nav-link href="/sales" :active="request()->is('sales')">Sales</x-nav-link>
                                 <x-nav-link href="/pos" :active="request()->is('pos')">POS</x-nav-link>
+                                <x-nav-link href="/audits" :active="request()->is('audits')">Audit</x-nav-link>
                             </div>
                         </div>
                     </div>
@@ -77,6 +78,8 @@
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Sales</a>
                     <a href="/pos"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">POS</a>
+                    <a href="/audits"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Audits</a>
                 </div>
                 <div class="border-t border-gray-700 pt-4 pb-3">
                     <div class="flex items-center px-5">
@@ -106,7 +109,9 @@
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex justify-between">
                 <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $heading }}</h1>
 
-                <x-button href="/items/create">Create Item</x-button>
+                @unless(request()->is('audits'))
+                    <x-button href="/items/create">Create Item</x-button>
+                @endunless
             </div>
         </header>
         <main>
