@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Audit;
-use App\Models\Tracking;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('audits', function (Blueprint $table) {
+        Schema::create('trackings', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Tracking::class);
-            $table->string('title');
-            $table->string('product_control_no');
-            $table->string('basket_no');
-            $table->string('serial_no');
+            $table->string('tracking_no');
             $table->timestamps();
         });
     }
@@ -29,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('audits');
+        Schema::dropIfExists('trackings');
     }
 };
