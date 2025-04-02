@@ -4,6 +4,16 @@
     </x-slot:heading>
 
     <form method="POST" action="/audits">
+        @if(session('success'))
+            <div class="bg-green-500 text-white p-4 rounded-md">
+                {{ session('success') }}
+            </div>
+        @elseif(session('error'))
+            <div class="bg-red-500 text-white p-4 rounded-md">
+                {{ session('error') }}
+            </div>
+        @endif
+
         @csrf
         <div class="space-y-12">
             <div class="border-b border-gray-900/10 pb-12">
@@ -13,7 +23,7 @@
                     <x-form-field>
                         <x-form-label for="title">Title</x-form-label>
                         <div class="mt-2">
-                            <x-form-input name="title" id="title" required />
+                            <x-form-input name="title" id="title" :value="old('title')" required />
 
                             <x-form-error name="title" />
                         </div>
@@ -22,7 +32,8 @@
                     <x-form-field>
                         <x-form-label for="product_control_no">Product Control No.</x-form-label>
                         <div class="mt-2">
-                            <x-form-input name="product_control_no" id="product_control_no" required />
+                            <x-form-input name="product_control_no" id="product_control_no"
+                                :value="old('product_control_no')" required />
 
                             <x-form-error name="product_control_no" />
                         </div>
@@ -31,7 +42,7 @@
                     <x-form-field>
                         <x-form-label for="basket_no">Basket No.</x-form-label>
                         <div class="mt-2">
-                            <x-form-input name="basket_no" id="basket_no" required />
+                            <x-form-input name="basket_no" id="basket_no" :value="old('basket_no')" required />
 
                             <x-form-error name="basket_no" />
                         </div>
@@ -40,7 +51,7 @@
                     <x-form-field>
                         <x-form-label for="serial_no">Serial No.</x-form-label>
                         <div class="mt-2">
-                            <x-form-input name="serial_no" id="serial_no" required />
+                            <x-form-input name="serial_no" id="serial_no" :value="old('serial_no')" required />
 
                             <x-form-error name="serial_no" />
                         </div>
@@ -49,7 +60,7 @@
                     <x-form-field>
                         <x-form-label for="tracking_no">Tracking No.</x-form-label>
                         <div class="mt-2">
-                            <x-form-input name="tracking_no" id="tracking_no" required />
+                            <x-form-input name="tracking_no" id="tracking_no" :value="old('tracking_no')" required />
 
                             <x-form-error name="tracking_no" />
                         </div>

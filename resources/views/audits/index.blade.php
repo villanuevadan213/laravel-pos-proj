@@ -27,41 +27,42 @@
         </div>
 
         <div class="bg-white p-6 overflow-hidden shadow-xl sm:rounded-lg">
+            {{-- <x-button href="/audits/create">Add Audit</x-button> --}}
             <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
+                <table class="min-w-full divide-y divide-gray-200 border border-gray">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th scope="col">
+                            <th scope="col" class="px-2 py-1">
                                 Title
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="px-2 py-1">
                                 Product Control #
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="px-2 py-1">
                                 Basket #
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="px-2 py-1">
                                 Serial #
                             </th>
-                            <th scope="col">
+                            <th scope="col" class="px-2 py-1">
                                 Tracking #
                             </th>
-                            <th scope="col">
+                            {{-- <th scope="col">
                                 Action
-                            </th>
+                            </th> --}}
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($audits as $audit)
-                            <tr class="{{ $loop->odd ? 'bg-gray-100' : 'bg-white' }} text-center">
-                                <td class="text-gray-500">{{ $audit['title'] }}</td>
-                                <td class="text-gray-500">{{ $audit['product_control_no'] }}</td>
-                                <td class="text-gray-500">{{ $audit['basket_no'] }}</td>
-                                <td class="text-gray-500">{{ $audit['serial_no'] }}</td>
-                                <td class="text-gray-500">{{ $audit->tracking->tracking_no }}</td>
-                                <td class="text-gray-500">
+                            <tr class="{{ $loop->odd ? 'bg-gray-100' : 'bg-white' }} text-center border-b-2 border-gray">
+                                <td class="px-2 py-1 text-gray-500">{{ $audit['title'] }}</td>
+                                <td class="px-2 py-1 text-gray-500">{{ $audit['product_control_no'] }}</td>
+                                <td class="px-2 py-1 text-gray-500">{{ $audit['basket_no'] }}</td>
+                                <td class="px-2 py-1 text-gray-500">{{ $audit['serial_no'] }}</td>
+                                <td class="px-2 py-1 text-gray-500">{{ $audit->tracking->tracking_no }}</td>
+                                {{-- <td class="text-gray-500">
                                     <x-button href="/audits/{{ $audit->id }}/edit">Edit</x-button>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>

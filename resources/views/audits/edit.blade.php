@@ -52,8 +52,8 @@
                     <x-form-field>
                         <x-form-label for="tracking_no">Tracking No.</x-form-label>
                         <div class="mt-2">
-                            <x-form-input name="tracking_no" id="tracking_no" value="{{ $audit->tracking_no }}"
-                                required />
+                            <x-form-input name="tracking_no" id="tracking_no"
+                                value="{{ $audit->tracking->tracking_no }}" required />
 
                             <x-form-error name="tracking_no" />
                         </div>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
-            <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
+            <a href="/audits" class="text-sm/6 font-semibold text-gray-900">Cancel</a>
             <button type="submit"
                 class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update</button>
         </div>
