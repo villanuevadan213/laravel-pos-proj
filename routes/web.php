@@ -14,9 +14,17 @@ Route::view('/pos', 'pos');
 
 Route::resource('audits', AuditController::class);
 
-Route::resource('items', ItemController::class); 
-// 7 Basic function index, show, create, store, edit, update, destroy
-// use ['only' => '' / 'except' => ''] to include or exclude
+Route::get('/items', [ItemController::class, 'index']);
+Route::get('/items/create', [ItemController::class, 'create']);
+Route::post('/items', [ItemController::class, 'store'])->middleware('auth');
+Route::get('/items/{item}', [ItemController::class, 'show']);
+
+Route::get('/items/{item}/edit', [ItemController::class, 'edit'])
+    ->middleware('auth')
+    ->can('edit', 'item');
+
+Route::patch('/items/{item}', [ItemController::class, 'update']);
+Route::delete('/items/{item}', [ItemController::class, 'destroy']);
 
 //Auth
 Route::get('/register', [RegisterUserController::class, 'create']);
