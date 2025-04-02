@@ -29,7 +29,7 @@
         <div class="bg-white p-6 overflow-hidden shadow-xl sm:rounded-lg">
             {{-- <x-button href="/audits/create">Add Audit</x-button> --}}
             <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200 border border-gray">
+                <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-2 py-1">
@@ -54,7 +54,8 @@
                     </thead>
                     <tbody>
                         @foreach ($audits as $audit)
-                            <tr class="{{ $loop->odd ? 'bg-gray-100' : 'bg-white' }} text-center border-b-2 border-gray">
+                            <tr
+                                class="{{ $loop->odd ? 'bg-gray-100' : 'bg-white' }} text-center border-b-2 border-gray-200">
                                 <td class="px-2 py-1 text-gray-500">{{ $audit['title'] }}</td>
                                 <td class="px-2 py-1 text-gray-500">{{ $audit['product_control_no'] }}</td>
                                 <td class="px-2 py-1 text-gray-500">{{ $audit['basket_no'] }}</td>
